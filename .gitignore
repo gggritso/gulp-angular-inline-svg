@@ -1,0 +1,14 @@
+*.o
+*.so
+*.un~
+*.war
+*.swp
+
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+node_modules
+.vscode
