@@ -2,28 +2,34 @@
   "name": "gulp-angular-inline-svg",
   "version": "0.0.1",
   "description": "Combines SVG files into an Angular constant",
-  "main": "src/index.js",
-  "scripts": {
-    "test": "mocha"
-  },
+  "homepage": "https://github.com/gggritso/gulp-angular-inline-svg",
+  "repository": "gggritso/gulp-angular-inline-svg",
   "keywords": [
     "angular",
     "svg",
     "gulpplugin"
   ],
-  "author": "George Gritsouk <george.gritsouk@gmail.com>",
+  "author": {
+    "name": "George Gritsouk",
+    "email": "george.gritsouk@gmail.com",
+    "url": "http://gggritso.com"
+  },
   "license": "MIT",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "mocha"
+  },
   "dependencies": {
     "svgo": "^0.7.2",
     "through2": "^2.0.3",
     "vinyl": "^2.0.2"
   },
-  "engines": {
-    "node": ">7.0.0"
-  },
   "devDependencies": {
     "event-stream": "^3.3.4",
     "mocha": "^3.4.2",
     "should": "^11.2.1"
+  },
+  "engines": {
+    "node": ">7.0.0"
   }
 }
