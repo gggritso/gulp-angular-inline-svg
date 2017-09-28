@@ -1,6 +1,6 @@
 {
   "name": "gulp-angular-inline-svg",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Combines SVG files into an Angular constant",
   "homepage": "https://github.com/gggritso/gulp-angular-inline-svg",
   "repository": "gggritso/gulp-angular-inline-svg",
