@@ -8,15 +8,14 @@ var
   path = require( 'path' ),
   SVGO = require( 'svgo' );
 
-function inlineSVG( options = {}, SVGOOptions = {}) {
+function inlineSVG( options = {}) {
 
   if ( !options.module ) throw new Error( 'gulp-angular-inline-svg: Need a module option!' );
   if ( !options.file ) options.file = 'icons.js';
   if ( !options.constant ) options.constant = 'ICONS';
 
   var
-    icons = {},
-    svgo = new SVGO( SVGOOptions );
+    icons = {};
 
   function runStream( file, enc, callback ) {
 
@@ -34,9 +33,11 @@ function inlineSVG( options = {}, SVGOOptions = {}) {
     var iconName = path.parse( path.basename( file.path ) ).name;
 
     if ( options.optimize ) {
+      var svgo = new SVGO();
+
       svgo
         .optimize( file.contents.toString( 'utf-8' ), optimizedSVG => {
-          icons[ iconName ] = optimizedSVG;
+          icons[ iconName ] = optimizedSVG.data;
           callback();
         });
     } else {

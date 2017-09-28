@@ -85,4 +85,36 @@ describe( 'gulp-angular-inline-icons', () => {
     stream.end( file );
   });
 
+
+  it( 'should run through SVGO if asked', done => {
+
+    var file = new Vinyl({
+      path: './icon.svg',
+      contents: new Buffer( '<svg><!-- lol -->hey  </svg>' ),
+    });
+
+    var options = {
+      module: 'foobaz',
+      constant: 'ICNS',
+      optimize: true,
+    };
+
+    var output = `
+      angular
+        .module( 'foobaz' )
+        .constant( 'ICNS', {"icon":"<svg>hey</svg>"} );
+    `;
+
+    var stream = icons( options );
+
+    stream.once( 'data', file => {
+
+      var contents = file.contents.toString( 'utf-8' );
+      assert.equal( contents, output );
+      done();
+    });
+
+    stream.end( file );
+  });
+
 });
