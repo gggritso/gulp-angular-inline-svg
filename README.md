@@ -42,6 +42,17 @@ The task `icons` takes in an options object like so `.pipe( icons( options ) )`.
 - `file` the result filename
 - `optimize` whether to run the files through SVGO to optimize the markup
 
+## SVGO Options
+The plugin runs everything through [SVGO](https://github.com/svg/svgo). If you need to pass SVGO option, you can do so using the second argument, like this:
+
+```
+    .pipe( icons({
+      module: 'myApp',
+    }, {
+      removeDoctype: true,
+    }) )
+```
+
 ## Usage Recommendation
 
 The best way to use this is through a component like this:

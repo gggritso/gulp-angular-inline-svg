@@ -8,7 +8,7 @@ var
   path = require( 'path' ),
   SVGO = require( 'svgo' );
 
-function inlineSVG( options = {}) {
+function inlineSVG( options = {}, SVGOOptions = {}) {
 
   if ( !options.module ) throw new Error( 'gulp-angular-inline-svg: Need a module option!' );
   if ( !options.file ) options.file = 'icons.js';
@@ -16,7 +16,7 @@ function inlineSVG( options = {}) {
 
   var
     icons = {},
-    svgo = new SVGO();
+    svgo = new SVGO( SVGOOptions );
 
   function runStream( file, enc, callback ) {
 
